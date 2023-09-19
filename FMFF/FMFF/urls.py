@@ -24,7 +24,7 @@ from django.views.generic import RedirectView
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('FindMyFurryFriend/', include('FindMyFurryFriend.urls', namespace='FindMyFurryFriend')),
-    path('accounts/', include('accounts.urls')),  # Include the accounts URLs here
+    path('accounts/', include('accounts.urls')), 
     path('lost-pets/', views.lost_pet_list, name='lost_pet_list'),
     path('add-lost-pet/', views.add_lost_pet, name='add_lost_pet'),
     path('lost-pet/<int:pet_id>/', views.lost_pet_detail, name='lost_pet_detail'),

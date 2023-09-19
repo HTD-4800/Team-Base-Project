@@ -1,6 +1,6 @@
 # FindMyFurryFriend/views.py
 from django.shortcuts import render, redirect, get_object_or_404
-from .models import LostPet  # Make sure to import the LostPet model if not already imported
+from .models import LostPet 
 from django.http import JsonResponse
 from django.contrib.auth.decorators import login_required
 
