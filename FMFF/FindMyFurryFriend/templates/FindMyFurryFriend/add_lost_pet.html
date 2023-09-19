@@ -1,0 +1,21 @@
+<!-- FindMyFurryFriend/templates/FindMyFurryFriend/add_lost_pet.html -->
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Add Lost Pet</title>
+</head>
+<body>
+    <h1>Add a Lost Pet</h1>
+    <form method="post">
+        {% csrf_token %}
+        <label for="name">Name:</label>
+        <input type="text" name="name" id="name"><br><br>
+        <label for="species">Species:</label>
+        <input type="text" name="species" id="species"><br><br>
+        <label for="description">Description:</label>
+        <textarea name="description" id="description"></textarea><br><br>
+        <input type="submit" value="Add Pet">
+    </form>
+</body>
+</html>
+

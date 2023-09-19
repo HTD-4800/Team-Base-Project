@@ -1,0 +1,25 @@
+<!-- FindMyFurryfriend/templates/FindMyFurryFriend/base.html -->
+<!DOCTYPE html>
+<html>
+<head>
+    <title>{% block title %}My Website{% endblock %}</title>
+</head>
+<body>
+    <header>
+        <h1>{% block header %}{% endblock %}</h1>
+    </header>
+    <nav>
+        <ul>
+            <li><a href="{% url 'lost_pet_list' %}">Lost Pets</a></li>
+            <!-- Add more navigation links as needed -->
+        </ul>
+    </nav>
+    <main>
+        {% block content %}
+        {% endblock %}
+    </main>
+    <footer>
+        &copy; {% now "Y" %} My Website
+    </footer>
+</body>
+</html>
