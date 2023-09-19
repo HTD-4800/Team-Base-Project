@@ -7,7 +7,6 @@ urlpatterns = [
     path('lost-pets/', views.lost_pet_list, name='lost_pet_list'),
     path('add-lost-pet/', views.add_lost_pet, name='add_lost_pet'),
     path('lost-pet/<int:pet_id>/', views.lost_pet_detail, name='lost_pet_detail'),
-    path('TN_api/', views.TN_api, name='TN_api'),
-
+    path('TN-api/', views.TN_api, name='TN_api'),
 ]
 
