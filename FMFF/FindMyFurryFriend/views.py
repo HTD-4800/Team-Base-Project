@@ -39,6 +39,6 @@ def lost_pet_detail(request, pet_id):
 
 def TN_api(request):
     print("TN_api view called")
-    data = {'message': 'Hello, this is TN first HTTP API!'}
+    data = {'message': 'Hello, this is Thoa first HTTP API!'}
     return JsonResponse(data)
 
