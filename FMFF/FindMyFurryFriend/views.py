@@ -37,9 +37,6 @@ def lost_pet_detail(request, pet_id):
     pet = get_object_or_404(LostPet, pk=pet_id)
     return render(request, 'FindMyFurryFriend/lost_pet_detail.html', {'pet': pet})
 
-def TN_api(request):
-    print("TN_api view called")
-    data = {'message': 'Hello, this is Thoa first HTTP API!'}
-    return JsonResponse(data)
 
- #
+
+ 
