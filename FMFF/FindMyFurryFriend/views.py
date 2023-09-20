@@ -42,4 +42,4 @@ def TN_api(request):
     data = {'message': 'Hello, this is Thoa first HTTP API!'}
     return JsonResponse(data)
 
- 
+ #
