@@ -9,5 +9,5 @@ urlpatterns = [
     path('lost-pet/<int:pet_id>/', views.lost_pet_detail, name='lost_pet_detail'),
     path('TN-api/', views.TN_api, name='TN_api'),
 ]
-#
+
 
