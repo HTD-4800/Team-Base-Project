@@ -8,6 +8,3 @@ class LostPet(models.Model):
     description = models.TextField()
     #owner = models.ForeignKey(User, on_delete=models.CASCADE)  
     owner = models.ForeignKey(User, on_delete=models.SET_NULL, null=True, blank=True)
-    
-
-   

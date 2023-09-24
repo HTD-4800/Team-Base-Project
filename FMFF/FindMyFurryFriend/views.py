@@ -7,6 +7,7 @@ from .filters import LostPetFilter
 from django.contrib.auth.models import User
 from django.http import HttpResponse
 
+
 def lost_pet_list(request):
     # Create a filter instance and apply it to the queryset
     lost_pet_filter = LostPetFilter(request.GET, queryset=LostPet.objects.all())
@@ -48,9 +49,8 @@ def lost_pet_detail(request, pet_id):
     pet = get_object_or_404(LostPet, pk=pet_id)
     return render(request, 'FindMyFurryFriend/lost_pet_detail.html', {'pet': pet})
 
-
 def TN_api(request):
     print("TN_api view called")
     data = {'message': 'Hello, this is Thoa first HTTP API!'}
     return JsonResponse(data)
- 
+

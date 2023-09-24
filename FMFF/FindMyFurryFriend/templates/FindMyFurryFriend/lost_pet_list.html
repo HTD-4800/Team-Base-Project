@@ -1,13 +1,12 @@
 <!-- FindMyFurryFriend/templates/FindMyFurryFriend/lost_pet_list.html -->
 {% extends "FindMyFurryFriend/base.html" %}
 
-{% block title %}Lost Pets{% endblock %}
+{% block title %}Find My Furry Friend{% endblock %}
 {% block header %}
-    <a href="{% url 'lost_pet_list' %}">Lost Pets</a>
+    <a href="{% url 'lost_pet_list' %}">Find My Furry Friend</a>
 {% endblock %}
 
 {% block content %}
-    <h1>Lost Pets</h1>
 
     <!-- Filter Form -->
     <form method="get">
