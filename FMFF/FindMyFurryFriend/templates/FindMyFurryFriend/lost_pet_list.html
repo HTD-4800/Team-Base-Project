@@ -8,20 +8,6 @@
 
 {% block content %}
 
-    <!-- Filter Form -->
-    <form method="get">
-        {{ filter.form.as_p }}
-        <button type="submit">Filter</button>
-    </form>
-
-    <!-- Filtered Results -->
-    <ul>
-        {% for pet in filter.qs %}
-            <li><a href="{% url 'lost_pet_detail' pet.id %}">{{ pet.species }}</a></li>
-        {% empty %}
-            <li>No results found.</li>
-        {% endfor %}
-    </ul>
-
+  dd
     <a href="{% url 'add_lost_pet' %}">Add a Lost Pet</a>
 {% endblock %}
