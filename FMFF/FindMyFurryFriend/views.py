@@ -3,7 +3,7 @@ from django.shortcuts import render, redirect, get_object_or_404
 from .models import LostPet 
 from django.http import JsonResponse
 from django.contrib.auth.decorators import login_required
-from .filters import LostPetFilter
+from .filter import LostPetFilter
 from django.contrib.auth.models import User
 from django.http import HttpResponse
 
