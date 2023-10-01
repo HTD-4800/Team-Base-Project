@@ -9,4 +9,4 @@ class LostPetFilter(django_filters.FilterSet):
 
     class Meta:
         model = LostPet
-        fields = ['species', 'name']  # Add more fields as needed
+        fields = ['species']  # Add more fields as needed
