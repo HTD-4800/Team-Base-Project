@@ -1,4 +1,8 @@
 from django.test import TestCase
+
+# Create your tests here.
+
+from django.test import TestCase
 from .models import LostPet
 
 class LostPetTestCase(TestCase):
@@ -12,3 +16,6 @@ class LostPetTestCase(TestCase):
 
         # Check if the pet's name matches what we created in setUp
         self.assertEqual(test_pet.name, "Test Pet")
+
+    # Add more test methods as needed to cover different aspects of your application
+
