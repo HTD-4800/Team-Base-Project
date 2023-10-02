@@ -1,0 +1,17 @@
+{% extends "FindMyFurryFriend/base.html" %}
+
+{% block title %}Lost Pet Detail{% endblock %}
+
+{% block content %}
+<h1>Lost Pet Detail</h1>
+<div>
+  <h2>Name: {{ pet.name }}</h2>
+  <p>Species: {{ pet.species }}</p>
+  <p>Description: {{ pet.description }}</p>
+  <!-- Add more fields as needed -->
+  <img src="{{ pet.image.url }}" alt="{{ pet.name }}">
+
+</div>
+<a href="{% url 'lost_pet_list' %}">Back to Lost Pets</a>
+{% endblock %}
+

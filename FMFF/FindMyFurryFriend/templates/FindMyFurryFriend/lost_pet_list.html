@@ -1,14 +1,26 @@
 <!-- FindMyFurryFriend/templates/FindMyFurryFriend/lost_pet_list.html -->
 {% extends "FindMyFurryFriend/base.html" %}
 
-{% block title %}Lost Pets{% endblock %}
-{% block header %}<a href="{% url 'lost_pet_list' %}">Lost Pets</a>{% endblock %}
+{% block title %}Find My Furry Friend{% endblock %}
+{% block header %}
+    <a href="{% url 'lost_pet_list' %}">Find My Furry Friend</a>
+{% endblock %}
+
 {% block content %}
-<h1>Lost Pets</h1>
-<ul>
-    {% for pet in lost_pets %}
-        <li><a href="{% url 'lost_pet_detail' pet.id %}">{{ pet.name }}</a></li>
-    {% endfor %}
-</ul>
-<a href="{% url 'add_lost_pet' %}">Add a Lost Pet</a>
+     <!-- Filter Form -->
+     <form method="get">
+        {{ filter.form.as_p }}
+        <button type="submit">Filter</button>
+    </form>
+
+    <!-- Filtered Results -->
+    <ul>
+        {% for pet in filter.qs %}
+            <li><a href="{% url 'lost_pet_detail' pet.id %}">{{ pet.species }}</a></li>
+        {% empty %}
+            <li>No results found.</li>
+        {% endfor %}
+    </ul>
+
+    <a href="{% url 'add_lost_pet' %}">Add a Lost Pet</a>
 {% endblock %}
