@@ -6,6 +6,9 @@ class LostPet(models.Model):
     name = models.CharField(max_length=100)
     species = models.CharField(max_length=50)
     description = models.TextField()
-   # image = models.ImageField(upload_to='djangrouploads/files/covers')
+    #image = models.ImageField(upload_to='path/to/upload/directory', blank=True, null=True)
+
+    image = models.ImageField(upload_to='lost_pets/', null=True, blank=True)
+
     def __str__(self):
         return self.name
