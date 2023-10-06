@@ -9,9 +9,16 @@
   <p>Species: {{ pet.species }}</p>
   <p>Description: {{ pet.description }}</p>
   <!-- Add more fields as needed -->
-  <img src="{{ pet.image.url }}" alt="{{ pet.name }}">
+  <p>Image: {{ image_url }}</p>
+
+  {% if image_url %}
+  <img src="{{ image_url }}" alt="{{ pet.name }}">
+  {% endif %}
+
+
 
 </div>
 <a href="{% url 'lost_pet_list' %}">Back to Lost Pets</a>
 {% endblock %}
+
 

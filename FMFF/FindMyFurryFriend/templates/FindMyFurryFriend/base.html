@@ -1,25 +1,26 @@
-<!-- FindMyFurryfriend/templates/FindMyFurryFriend/base.html -->
+<!-- FindMyFurryFriend/templates/FindMyFurryFriend/base.html -->
 <!DOCTYPE html>
 <html>
 <head>
     <title>{% block title %}My Website{% endblock %}</title>
 </head>
 <body>
-    <header>
-        <h1>{% block header %}{% endblock %}</h1>
-    </header>
-    <nav>
-        <ul>
-            <li><a href="{% url 'emergency_contacts_list' %}">Emergency Contacts List</a></li>
-            <!-- Add other navigation links here -->
-        </ul>
-    </nav> 
-    <main>
-        {% block content %}
-        {% endblock %}
-    </main>
-    <footer>
-        &copy; {% now "Y" %} My Website
-    </footer>
+<header>
+    <h1>{% block header %}{% endblock %}</h1>
+</header>
+<nav>
+    <ul>
+        <li><a href="{% url 'emergency_contacts_list' %}">Emergency Contacts List</a></li>
+        <!-- Add other navigation links here -->
+    </ul>
+</nav>
+
+<main>
+    {% block content %}
+    {% endblock %}
+</main>
+<footer>
+    &copy; {% now "Y" %} My Website
+</footer>
 </body>
 </html>
