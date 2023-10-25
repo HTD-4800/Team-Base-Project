@@ -1,9 +1,9 @@
 {% extends "FindMyFurryFriend/base.html" %}
 
-{% block title %}Lost Pet Detail{% endblock %}
+{% block title %}Found Pet Detail{% endblock %}
 
 {% block content %}
-<h1>Lost Pet Detail</h1>
+<h1>Found Pet Detail</h1>
 <div>
   <h2>Name: {{ pet.name }}</h2>
   <p>Species: {{ pet.species }}</p>
@@ -13,7 +13,5 @@
   {% endif %}
 
 </div>
-<a href="{% url 'lost_pet_list' %}">Back to Lost Pets</a>
+<a href="{% url 'found_pet_list' %}">Back to Found Pets</a>
 {% endblock %}
-
-

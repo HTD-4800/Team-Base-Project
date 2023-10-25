@@ -1,13 +1,13 @@
-<!-- FindMyFurryFriend/templates/FindMyFurryFriend/add_lost_pet.html -->
+<!-- FindMyFurryFriend/templates/FindMyFurryFriend/add_found_pet.html -->
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Add Lost Pet</title>
+    <title>Add Found Pet</title>
 </head>
 <body>
-<h1>Add a Lost Pet</h1>
+<h1>Add a Found Pet</h1>
 <form method="post" enctype="multipart/form-data"> 
-    {% csrf_token %}
+    {% csrf_token %} 
     <label for="name">Name:</label>
     <input type="text" name="name" id="name"><br><br>
     <label for="species">Species:</label>
@@ -21,5 +21,4 @@
 </form>
 </body>
 </html>
-
 

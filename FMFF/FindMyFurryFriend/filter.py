@@ -1,12 +1,11 @@
 import django_filters
-from .models import LostPet
+from .models import LostPet, FoundPet
 
 class LostPetFilter(django_filters.FilterSet):
-
-    # Define additional filter fields
-     #name = django_filters.CharFilter(lookup_expr='icontains')  # Case-insensitive partial match
-    # location = django_filters.CharFilter(lookup_expr='iexact')  # Case-insensitive exact match
-
     class Meta:
         model = LostPet
-        fields = ['species']  # Add more fields as needed
+        fields = ['species'] 
+class FoundPetFilter(django_filters.FilterSet):
+    class Meta:
+        model = FoundPet
+        fields = ['species'] 

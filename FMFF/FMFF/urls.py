@@ -27,12 +27,16 @@ from django.conf.urls.static import static
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('FindMyFurryFriend/', include('FindMyFurryFriend.urls', namespace='FindMyFurryFriend')),
+    path('', include('FindMyFurryFriend.urls')),
+    path('', views.landing, name='landing'),
+    path('lost_pet_list/', views.lost_pet_list, name='lost_pet_list'),
+    path('found_pet_list/', views.found_pet_list, name='found_pet_list'),
+    path('add_found_pet/', views.add_found_pet, name='add_found_pet'),
     path('accounts/', include('accounts.urls')), 
-    #path('lost-pets/', views.lost_pet_list, name='lost_pet_list'),
-   path('FindMyFurryFriend/', views.lost_pet_list, name='lost_pet_list'),
+    path('FindMyFurryFriend/', views.lost_pet_list, name='lost_pet_list'),
     path('add-lost-pet/', views.add_lost_pet, name='add_lost_pet'),
     path('lost-pet/<int:pet_id>/', views.lost_pet_detail, name='lost_pet_detail'),
+    path('found-pet/<int:pet_id>/', views.found_pet_detail, name='found_pet_detail'),
      # Define a URL pattern for the root URL ("/") that redirects to the lost pets list
     path('', RedirectView.as_view(pattern_name='lost_pet_list', permanent=False)),
     path('emergency-contacts/list/', TemplateView.as_view(template_name='FindMyFurryFriend/list.html'), name='emergency_contacts_list'),

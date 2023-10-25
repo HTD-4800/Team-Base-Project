@@ -6,15 +6,10 @@
 </head>
 <body>
 <header>
-    <h1>{% block header %}{% endblock %}</h1>
+    <h1>{% block header %}
+        <a href="{% url 'lost_pet_list' %}">Find My Furry Friend</a>
+    {% endblock %}</h1>
 </header>
-<nav>
-    <ul>
-        <li><a href="{% url 'emergency_contacts_list' %}">Emergency Contacts List</a></li>
-        <!-- Add other navigation links here -->
-    </ul>
-</nav>
-
 <main>
     {% block content %}
     {% endblock %}
