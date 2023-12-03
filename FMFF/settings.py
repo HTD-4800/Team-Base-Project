@@ -42,14 +42,19 @@ INSTALLED_APPS = [
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
+    'django.contrib.gis',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'django_filters',
     'FindMyFurryFriend',
     'accounts',
+    'channels',
 
 ]
+
+ASGI_APPLICATION = 'FMFF.routing.application'
+
 
 MIDDLEWARE = [
 

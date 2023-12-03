@@ -12,6 +12,13 @@ from .form import LostPetForm
 from .filter import FoundPetFilter
 from .models import FoundPet
 from .form import FoundPetForm
+from django.contrib.auth import authenticate
+from django.contrib import messages
+from channels.layers import get_channel_layer
+from asgiref.sync import async_to_sync
+
+
+
 
 
 def lost_pet_detail(request, pet_id):
@@ -87,41 +94,53 @@ def found_pet_list(request):
 
 
 def add_lost_pet(request):
-    if request.method == 'POST':        
-        if request.user.is_authenticated:
-            owner = request.user
-        else:
-            owner = None
-            
-        form = LostPetForm(request.POST, request.FILES)  # Handle files with request.FILES
-
+    if request.method == 'POST':
+        form = LostPetForm(request.POST, request.FILES)
         if form.is_valid():
-            new_lost_pet = form.save()
-            return redirect('lost_pet_list')
-        else:
-            # Handle form validation errors here (e.g., display an error message)
-            pass
+            lost_pet = form.save(commit=False)
+
+            # Extract latitude and longitude from the POST data with default values
+            latitude = request.POST.get('latitude', 0)
+            longitude = request.POST.get('longitude', 0)
+
+            # Ensure the values are valid floats; otherwise, use default values
+            try:
+                lost_pet.latitude = float(latitude)
+                lost_pet.longitude = float(longitude)
+            except ValueError:
+                lost_pet.latitude = 0
+                lost_pet.longitude = 0
+
+            lost_pet.save()
+            return redirect('lost_pet_detail', pet_id=lost_pet.pk)
     else:
         form = LostPetForm()
+
     return render(request, 'FindMyFurryFriend/add_lost_pet.html', {'form': form})
 
 def add_found_pet(request):
-    if request.method == 'POST':        
-        if request.user.is_authenticated:
-            owner = request.user
-        else:
-            owner = None
-            
-        form = FoundPetForm(request.POST, request.FILES)  # Handle files with request.FILES
-
+    if request.method == 'POST':
+        form = FoundPetForm(request.POST, request.FILES)
         if form.is_valid():
-            new_found_pet = form.save()
-            return redirect('found_pet_list')
-        else:
-            # Handle form validation errors here (e.g., display an error message)
-            pass
+            found_pet = form.save(commit=False)
+
+            # Extract latitude and longitude from the POST data with default values
+            latitude = request.POST.get('latitude', 0)
+            longitude = request.POST.get('longitude', 0)
+
+            # Ensure the values are valid floats; otherwise, use default values
+            try:
+                found_pet.latitude = float(latitude)
+                found_pet.longitude = float(longitude)
+            except ValueError:
+                found_pet.latitude = 0
+                found_pet.longitude = 0
+
+            found_pet.save()
+            return redirect('found_pet_detail', pet_id=found_pet.pk)
     else:
         form = FoundPetForm()
+
     return render(request, 'FindMyFurryFriend/add_found_pet.html', {'form': form})
 
 
@@ -129,6 +148,19 @@ def TN_api(request):
     print("TN_api view called")
     data = {'message': 'Hello, this is Thoa first HTTP API!'}
     return JsonResponse(data)
+
+def post_something(request):
+    # Process the post data
+    message = "New post available!"
+
+    # Send WebSocket message to the "all_users" group
+    channel_layer = get_channel_layer()
+    async_to_sync(channel_layer.group_send)("all_users", {
+        "type": "notification.message",
+        "message": message,
+    })
+
+    return HttpResponse("Post successful")
 
 class LostPetListViewTest(TestCase):
     def test_lost_pet_list(self):
