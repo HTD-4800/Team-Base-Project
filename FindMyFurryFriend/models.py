@@ -7,9 +7,11 @@ class LostPet(models.Model):
     species = models.CharField(max_length=50)
     description = models.TextField()
     #image = models.ImageField(upload_to='path/to/upload/directory', blank=True, null=True)
-
-
+    agree_to_share_location = models.BooleanField(default=False)
     image = models.ImageField(upload_to='lost_pets/', null=True, blank=True)
+    latitude = models.FloatField(blank=True, null=True)
+    longitude = models.FloatField(blank=True, null=True)
+
 
     def __str__(self):
         return self.name
@@ -19,11 +21,12 @@ class FoundPet(models.Model):
     species = models.CharField(max_length=50)
     description = models.TextField()
     #image = models.ImageField(upload_to='path/to/upload/directory', blank=True, null=True)
-
-    image = models.ImageField(upload_to='found_pets/', null=True, blank=True)
+    agree_to_share_location = models.BooleanField(default=False)
+    image = models.ImageField(upload_to='lost_pets/', null=True, blank=True)
+    latitude = models.FloatField(blank=True, null=True)
+    longitude = models.FloatField(blank=True, null=True)
 
     def __str__(self):
         return self.name
     
     # models.py
-

@@ -50,7 +50,48 @@
             background-color: #007bff;
             color: #fff;
         }
+
+        /* Add new styles for notifications */
+        #notification-container {
+            margin-top: 30px;
+        }
+
+        .notification {
+            background-color: #28a745;
+            color: #fff;
+            padding: 10px;
+            border-radius: 5px;
+            margin-bottom: 10px;
+        }
     </style>
+
+    <!-- Add the WebSocket script -->
+    <script>
+        const socket = new WebSocket('ws://127.0.0.1:8000/ws/notifications/');
+        socket.onmessage = (event) => {
+            const data = JSON.parse(event.data);
+
+            // Check if the received message is a notification
+            if (data.type === 'notification') {
+                // Display the notification in the UI
+                displayNotification(data.message);
+            }
+        };
+
+        function displayNotification(message) {
+            // Find the notification container in the HTML
+            const notificationContainer = document.getElementById('notification-container');
+
+            // Create a new div element to hold the notification message
+            const notificationDiv = document.createElement('div');
+            notificationDiv.classList.add('notification');
+            notificationDiv.innerText = message;
+
+            // Append the new div to the notification container
+            notificationContainer.appendChild(notificationDiv);
+        }
+    </script>
+
 </head>
 <body>
     <h1>Find My Furry Friend</h1>
