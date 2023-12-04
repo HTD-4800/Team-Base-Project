@@ -6,4 +6,15 @@
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
   </component>
+<<<<<<< HEAD
+=======
+  <component name="TemplatesService">
+    <option name="TEMPLATE_CONFIGURATION" value="Jinja2" />
+    <option name="TEMPLATE_FOLDERS">
+      <list>
+        <option value="$MODULE_DIR$/accounts/templates" />
+      </list>
+    </option>
+  </component>
+>>>>>>> 98ecfba2ca67ed0fcd759b4552ff6fc36834dff1
 </module>
