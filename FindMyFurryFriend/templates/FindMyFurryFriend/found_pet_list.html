@@ -196,8 +196,7 @@
     <div class="pet-list">
         {% for pet in found_pets %}
             <div class="pet-card">
-                <h3><a href="{% url 'found_pet_detail' pet.id %}" class="pet-link">{{ pet.name }}</a></h3>
-                <p>Species: {{ pet.species }}</p>
+                <h3><a href="{% url 'found_pet_detail' pet.id %}" class="pet-link">{{ pet.species }}</a></h3>
 
                 <!-- Display the image -->
                 {% if pet.image %}

@@ -195,14 +195,12 @@
         {{ filter.form.as_p }}
         <button type="submit" class="btn btn-primary">Filter</button>
     </form>
-
+   
     <!-- Filtered Results with Comment Section -->
     <ul class="pet-list">
         {% for pet in filter.qs %}
-        <li>
             <div class="pet-card">
-                <h3><a href="{% url 'lost_pet_detail' pet.id %}" class="pet-link">{{ pet.name }}</a></h3>
-                <p>Species: {{ pet.species }}</p>
+                <h3><a href="{% url 'lost_pet_detail' pet.id %}" class="pet-link">{{ pet.species }}</a></h3>
 
                 <!-- Display the image -->
                 {% if pet.image %}
@@ -231,7 +229,6 @@
                     <button type="submit" class="btn btn-primary">Submit Comment</button>
                 </form>
             </div>
-        </li>
         {% empty %}
         <li>No results found.</li>
         {% endfor %}
